@@ -1,0 +1,22 @@
+h1 {
+    font-size: 66px;
+    font-family: sans-serif;
+    color: orange;
+}
+
+ul {
+    background-color: blue;
+    text-align: left;
+    text-decoration: dotted;
+    line-height: 1.5em;
+}
+
+.list-p-style {
+    background-color: aquamarine;
+}
+
+p {
+    font-weight: 600;
+    font-size: 3em;
+    font-style: italic;
+}
