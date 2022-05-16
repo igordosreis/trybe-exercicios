@@ -3,7 +3,7 @@ let x = null;
 let busca ='igor';
 for (index = 0; index < arr.length; index +=1) {
     if ( busca == arr[index] ) {
-        x = index
+        x = index;
     }
 }
 if ( x == null) {
