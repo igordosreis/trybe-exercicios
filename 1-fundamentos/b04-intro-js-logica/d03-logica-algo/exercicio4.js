@@ -3,7 +3,7 @@ let primesList = [];
 
 for (i = 0 ; i <= 50 ; i += 1){
     let dividerCounter = 0;
-    for (ii = 0 ; ii <= i ; ii += 1) {
+    for (ii = 0 ; ii < i ; ii += 1) {
         if (i % ii == 0) {
             dividerCounter += 1;
         }  
