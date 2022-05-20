@@ -66,7 +66,7 @@
             .parentElement
             .parentElement
             .nextElementSibling;
-        console.log(thirdChild);    
+        // console.log(thirdChild);    
         // Tambem é uma forma de encadeamento:
         // const thirdChild = newChild2.parentElement.parentElement.nextElementSibling; 
         
@@ -88,9 +88,11 @@
         // }
 
         // for (let index = 0 ; index < father.childNodes.length ; index += 1) {
+        // Nao tem como remover com um indice crescente. Os elementos do array mudam de indice a medida que os outros 
+        // elementos sao removidos e os elementos nao removidos ficam inacessiveis, apesar de ainda existirem.
         for (let index = father.childNodes.length -1; index >= 0; index -= 1) {
             let currentChild = father.childNodes[index];
-            console.log(index);
+            // console.log(index);
             console.log(currentChild);
             if (currentChild.id !== 'elementoOndeVoceEsta') {
                 currentChild.remove();
