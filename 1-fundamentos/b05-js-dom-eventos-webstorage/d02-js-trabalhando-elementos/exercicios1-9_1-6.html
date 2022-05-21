@@ -56,11 +56,13 @@
   </head>
   <body>
     <script>
+        // PARTE 1
         // 1 - Adicione a tag h1 com o texto Exercício 5.2 - JavaScript DOM como filho da tag body;  
         const elementH1 = document.createElement('h1');
         document.body.prepend(elementH1);
         elementH1.innerText = 'Exercício 5.2 - JavaScript DOM';
-        // Porque essa sintaxe nao funciona?    
+        // Porque essa sintaxe nao funciona? Acho que é porque document.body é uma propriedade especial 
+        // que permite acessar root nodes
         // const corpo = document.getElementsByTagName('body');
         // corpo.prepend(h1);
 
@@ -107,6 +109,8 @@
         }
 
         // 9 - Adicione 3 tags h3, todas sendo filhas do main criado no passo 2. 
+        // Para fazer funcionar como funcao, tente criar uma funcao que crie uma unica tag h3 e rodar a 
+        // funcao 3x com um for
         // function createElementH3(number) {
         //     for (let index = 1; index <= number; index += 1) {
         //     const elementH3 = document.createElement('h3');
@@ -121,6 +125,56 @@
             elementMain.appendChild(elementH3);
             }
        
+        // Parte 2
+        // 1 - Adicione a classe title na tag h1 criada; 
+        elementH1.className = 'title';
+
+        // 2 - Adicione a classe description nas 3 tags h3 criadas; 
+        // Por que as solucoes abaixo na funcionaram? 
+        // Provavelmente porque o elementH3 foi criado dentro de um for, logo essa variavel nao existe fora do for
+        // elementH3[0].className = 'description';
+
+        const elementsH3 = document.getElementsByTagName('h3');
+        for (let index in elementsH3) {
+          elementsH3[index].className = 'description';
+        }
+
+        // 3 - Remova a section criado no passo 5 (aquele que possui a classe left-content). Utilize a função .removeChild(); 
+        const removeLeftSection = document.getElementsByClassName('left-content')[0];
+        elementMain.removeChild(removeLeftSection);
+        //Por que a solucao abaixo funciona mas a comentada do exercicio 2 nao?
+        // elementMain.removeChild(elementSectionLeft);
+
+        // 4 -  Centralize a section criado no passo 6 (aquele que possui a classe right-content). 
+        // Dica: para centralizar, basta configurar o margin-right: auto da section; 
+        // Solucao 1
+        elementSectionRight.style.marginRight = 'auto';
+
+        // Solucao 2
+        // const marginRightSection = document.getElementsByClassName('right-content')[0];
+        // marginRightSection.style.marginRight = 'auto';
+
+        // Solucao 3
+        // const marginRightSection = document.getElementsByClassName('right-content');
+        // marginRightSection[0].style.marginRight = 'auto';
+
+        // 5 - Troque a cor de fundo do elemento pai da section criada no passo 3 
+        // (aquela que possui a classe center-content) para a cor verde; 
+        // elementSectionCenter.parentElement.style.backgroundColor = 'green';
+
+        const changeBgColorMain = document.getElementsByClassName('center-content');
+        changeBgColorMain[0].parentElement.style.backgroundColor = 'green';
+
+        // 6 - Remova os dois últimos elementos (nove e dez) da lista criada no passo 8. 
+        const removeListItens = document.getElementsByTagName('li');
+        for (let index = removeListItens.length - 1; index >= 8; index -= 1) {
+          elementUnorderedList.removeChild(removeListItens[index]);
+        }
+
+        // Solucao 2
+        // elementUnorderedList.lastChild.remove();
+        // elementUnorderedList.lastChild.remove();
+
 
     </script>
   </body>
