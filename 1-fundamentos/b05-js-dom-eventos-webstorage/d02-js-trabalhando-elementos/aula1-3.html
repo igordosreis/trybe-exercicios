@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main id="paiDoPai">
+        <section id="pai">
+            <section id="primeiroFilho"></section>
+            <section id="elementoOndeVoceEsta">
+                <section id="primeiroFilhoDoFilho"></section>
+                <section id="segundoEUltimoFilhoDoFilho"></section>
+            </section>
+            Atenção!
+            <section id="terceiroFilho"></section>
+            <section id="quartoEUltimoFilho"></section>
+        </section>
+    
+    </main>
+    <script>
+        // Aula 1
+        // 1 - Acesse o elemento elementoOndeVoceEsta. 
+        const elementoOndeVoceEsta = document.getElementById('elementoOndeVoceEsta');
+    
+        // 2 - Acesse pai a partir de elementoOndeVoceEsta e adicione uma color a ele. 
+        const father = elementoOndeVoceEsta.parentElement;
+        father.style.color = 'blue;'
+    
+        // 3 - Acesse o primeiroFilhoDoFilho e adicione um texto a ele.
+        const firstSonOfTheSon = elementoOndeVoceEsta.firstElementChild;
+        firstSonOfTheSon.innerText = 'Bacon ipsum.'; 
+        
+        // 4 - Acesse o primeiroFilho a partir de pai. 
+        const firstSon = father.firstElementChild;
+
+        // 5 - Agora acesse o primeiroFilho a partir de elementoOndeVoceEsta.
+        const firstSonSecondAccess = elementoOndeVoceEsta.previousElementSibling;
+
+        // 6 - Agora acesse o texto Atenção! a partir de elementoOndeVoceEsta. 
+        const text = elementoOndeVoceEsta.nextSibling;
+
+        // 7 - Agora acesse o terceiroFilho a partir de elementoOndeVoceEsta. 
+        const thirdSon = elementoOndeVoceEsta.nextElementSibling;
+
+        // 8 - Agora acesse o terceiroFilho a partir de pai. 
+        const thirdSonSecondAccess = father.lastElementChild;
+        
+        // Aula 2
+        // 1 - Crie um irmão para elementoOndeVoceEsta. 
+        const newSibling = document.createElement('div');
+        father.appendChild(newSibling);
+
+        // 2 - Crie um filho para elementoOndeVoceEsta. 
+        const newChild = document.createElement('p');
+        elementoOndeVoceEsta.appendChild(newChild);
+
+        // 3 - Crie um filho para primeiroFilhoDoFilho. 
+        const newChild2 = document.createElement('aside');
+        firstSonOfTheSon.appendChild(newChild2);
+
+        // 4 - A partir desse filho criado, acesse terceiroFilho. 
+        const thirdChild = newChild2
+            .parentElement
+            .parentElement
+            .nextElementSibling;
+        // console.log(thirdChild);    
+        // Tambem é uma forma de encadeamento:
+        // const thirdChild = newChild2.parentElement.parentElement.nextElementSibling; 
+        
+        // Aula 3
+        // 1 - Remova todos os elementos filhos de paiDoPai exceto:
+        // pai, elementoOndeVoceEsta e primeiroFilhoDoFilho.
+
+        // Aparentemente, funciona acessar father a partir de elementoOndeVoceEsta
+        // console.log(father.childNodes.length);
+
+        const father2 = document.getElementById('pai');
+        // console.log(father2.childNodes.length);
+
+        // for (let currentChild of father2.childNodes) {
+        //     console.log(currentChild);
+        //     if (currentChild !== elementoOndeVoceEsta) {
+        //         currentChild.remove();
+        //     }
+        // }
+
+        // for (let index = 0 ; index < father.childNodes.length ; index += 1) {
+        // Nao tem como remover com um indice crescente. Os elementos do array mudam de indice a medida que os outros 
+        // elementos sao removidos e os elementos nao removidos ficam inacessiveis, apesar de ainda existirem.
+        for (let index = father.childNodes.length -1; index >= 0; index -= 1) {
+            let currentChild = father.childNodes[index];
+            // console.log(index);
+            console.log(currentChild);
+            if (currentChild.id !== 'elementoOndeVoceEsta') {
+                currentChild.remove();
+            }
+        }
+
+        let secondAndLastSonOfTheSon = document.getElementById('segundoEUltimoFilhoDoFilho');
+        secondAndLastSonOfTheSon.remove();
+
+   
+        
+    </script>
+</body>
+</html>
