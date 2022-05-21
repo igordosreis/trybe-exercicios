@@ -34,16 +34,37 @@ input.addEventListener('keyup', changeText);
 
 function changeText(event) {
   const elementWithTechClass = document.querySelector('.tech');
-  // elementWithTechClass.innerText = input.value; // Por que nao usar essa solucao?
-  elementWithTechClass.innerText = input.value; 
+  // elementWithTechClass.innerText = input.value; // ❓ Por que nao usar essa solucao e sem o event?
+  elementWithTechClass.innerText = event.target.value; 
+  // elementWithTechClass.style.color = 'red'; 
 }
 
 // 4. Crie uma função que, ao clicar duas vezes em 'Meu top 3 do Spotrybefy', ele
 // redirecione para alguma página;
 // 4.1. Que tal redirecionar para seu portfólio?
+myWebpage.addEventListener('dblclick', redirect);
+
+function redirect() {
+  const mySpotrybefy = document.querySelector('#my-spotrybefy');
+  // window.location = 'http://www.google.com'; // ❓ Por que nao usar essa solucao e sem o event?
+  window.location.replace('http://www.google.com');
+  }
 
 // 5. Crie uma função que, ao passar o mouse sobre 'Meu top 3 do Spotrybefy', altere
 // a cor do mesmo;
+myWebpage.addEventListener('mouseover', mouseOver);
+myWebpage.addEventListener('mouseout', mouseOut);
+
+function mouseOver(event) {
+  // const mySpotrybefy = document.querySelector('#my-spotrybefy');
+  // mySpotrybefy.style.color = 'red';
+  event.target.style.color = 'purple';
+}
+
+function mouseOut(event) {
+  event.target.style.color = '';
+}
+
 
 // Segue abaixo um exemplo do uso de event.target:
 
