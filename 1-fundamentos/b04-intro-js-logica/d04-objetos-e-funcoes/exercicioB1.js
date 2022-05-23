@@ -42,6 +42,8 @@ return sum;
 console.log(romanToArabic('MCMLXXXVI'));
 console.log(romanToArabic('MMXVIII'));
 console.log(romanToArabic('XI'));
+console.log(romanToArabic('X'));
+console.log(romanToArabic('IV'));
 
 //Segunda versao, usando objeto
 function romanToArabic(romanNumber) {
@@ -70,6 +72,8 @@ return sum;
 console.log(romanToArabic('MCMLXXXVI'));
 console.log(romanToArabic('MMXVIII'));
 console.log(romanToArabic('XI'));
+console.log(romanToArabic('X'));
+console.log(romanToArabic('IV'));
 
 //Terceira versao, com objeto e sem .reverse()
 function romanToArabic(romanNumber) {
@@ -99,3 +103,40 @@ function romanToArabic(romanNumber) {
 console.log(romanToArabic('MCMLXXXVI'));
 console.log(romanToArabic('MMXVIII'));
 console.log(romanToArabic('XI'));
+console.log(romanToArabic('X'));
+console.log(romanToArabic('IV'));
+
+//Quarta versao, com objeto e sem .reverse()
+function romanToArabic(romanNumber) {
+    romanNumber = romanNumber.toLowerCase();
+    // let inversedRomanNumber = romanNumber.split('').reverse();
+    let romanNumbersList = {
+        i: 1,
+        v: 5,
+        x: 10,
+        l: 50,
+        c: 100,
+        d: 500,
+        m: 1000,
+    }
+    sum = romanNumbersList[romanNumber[romanNumber.length - 1]];
+    currentNumber = romanNumbersList[romanNumber[romanNumber.length - 1]];
+    
+    for (let index = 2; index <= romanNumber.length; index += 1) {
+        nextNumber = romanNumbersList[romanNumber[romanNumber.length - index]];
+        if (currentNumber <= nextNumber) {
+            sum += nextNumber;
+        }
+        else {
+        // if (currentNumber > nextNumber) {
+            sum -= nextNumber;
+        }
+        currentNumber = nextNumber;
+    }
+    return sum;
+}
+console.log(romanToArabic('MCMLXXXVI'));
+console.log(romanToArabic('MMXVIII'));
+console.log(romanToArabic('XI'));
+console.log(romanToArabic('X'));
+console.log(romanToArabic('IV'));
