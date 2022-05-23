@@ -5,7 +5,7 @@ function arrayOfNumbers(vector) {
 let arrayOfEvenNumbers = [];
     for (let currentArray of vector){
         for (let currentNumber of currentArray) {
-            if (currentNumber % 2 === 0) {
+            if (!(currentNumber % 2)) { // if (currentNumber % 2 === 0)
                 arrayOfEvenNumbers.push(currentNumber);
             }
         }
