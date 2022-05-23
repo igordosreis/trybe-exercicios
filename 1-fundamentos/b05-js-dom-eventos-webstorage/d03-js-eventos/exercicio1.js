@@ -65,7 +65,7 @@ function holidaysHighlight() {
     const holidays = document.querySelectorAll('.holiday');
     const holidayButton = document.querySelector('#btn-holiday');
     const backgroundColor = 'rgb(238, 238, 238)';
-    const newColor = 'rgb(230, 250, 0)'; //Porque, caso eu coloque a cor em rgb ou hex, o botao para de reverter a cor? Ja tentei substituit as variaveis no if pelas cores em rgb e remover um '=', mas nao funcionou.
+    const newColor = 'rgb(230, 250, 0)'; //Porque, caso eu coloque a cor em rgb ou hex, o botao para de reverter a cor? Ja tentei substituit as variaveis no if pelas cores em rgb e remover um '=', mas nao funcionou. O problema é que o rgb que eu usei tinha espaçamento diferente entre os numeros quando comparado ao rgb original.
 
     holidayButton.addEventListener('click', function() {
         for (let day of holidays) {
@@ -116,3 +116,78 @@ function fridaysHighlight() {
     })
 };
 fridaysHighlight();
+
+
+// 6 -  Implemente duas funções que criem um efeito de "zoom". Ao passar o ponteiro do mouse em um dia do mês no calendário, o texto desse dia deve aumentar e, quando o ponteiro do mouse sair do dia, o texto deve retornar ao tamanho original.
+
+    //Dica - Propriedade: event.target. https://developer.mozilla.org/en-US/docs/Web/API/Event/target
+
+function zoomIn() {
+    const daysInsideUl = document.querySelector('#days');
+
+    daysInsideUl.addEventListener('mouseover', function(event) {
+        event.target.style.fontSize = 'xx-large';
+    })
+};
+zoomIn();
+
+function zoomOut() {
+    const daysInsideUl = document.querySelector('#days');
+
+    daysInsideUl.addEventListener('mouseout', function(event) {
+        event.target.style.fontSize = 'medium';
+    })
+};
+zoomOut();
+
+
+// 7 -  Implemente uma função que adiciona uma tarefa personalizada ao calendário. A função deve receber como parâmetro a string com o nome da tarefa (ex: "cozinhar") e criar dinamicamente um elemento com a tag <span> contendo a tarefa.
+
+    // O elemento criado deverá ser adicionado como filho/filha da tag <div> que possui a classe "my-tasks".
+
+function addTask(taskName) {
+    const newTask = document.createElement('span');
+    newTask.innerHTML = taskName;
+    document.querySelector('.my-tasks').appendChild(newTask);
+
+    // newTask.addEventListener('keyup', function() {
+    //     newTask.innerHTML = taskName;
+    // })
+};
+addTask('Tarefa #1');
+
+
+// 8 -  Implemente uma função que adiciona uma legenda com cor para a tarefa criada no exercício anterior. Esta função deverá receber como parâmetro uma string ("cor") e criar dinamicamente um elemento de tag <div> com a classe task.
+
+    // O parâmetro cor deverá ser utilizado como cor de fundo da <div> criada.
+    // O elemento criado deverá ser adicionado como filho/filha da tag <div> que possui a classe "my-tasks".
+
+function addColorToTask(color) {
+    const newTaskColor = document.createElement('div');
+    newTaskColor.className = 'task';
+    newTaskColor.style.backgroundColor = color;
+    document.querySelector('.my-tasks').appendChild(newTaskColor);
+};
+addColorToTask('turquoise');
+
+
+// 9 - Implemente uma função que adiciona um evento que, ao clicar no elemento com a tag <div> referente a cor da sua tarefa, atribua a este elemento a classe task selected, ou seja, quando sua tarefa possuir a classe task selected, ela estará selecionada.
+
+    // Ao clicar novamente no elemento, a sua classe deverá voltar a ser somente task, ou seja, esta tarefa está deixando de ser uma tarefa selecionada.
+
+function taskClassAdd() {
+    const taskSelecter = document.querySelector('.task');
+
+    taskSelecter.addEventListener('click', function(event) {
+        console.log(taskSelecter.className);
+        if (taskSelecter.className === 'task') {
+            event.target.className += ' selected';
+            console.log(taskSelecter.className);
+        } else // Porque eu preciso desse else para que a funcao funcione corretamente? Porque somente o 2o if nao basta?
+        if (taskSelecter.className === 'task selected') {
+            event.target.className = 'task';
+            console.log(taskSelecter.className);
+        }
+    })
+};
+taskClassAdd();
