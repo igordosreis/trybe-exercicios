@@ -1,105 +1,101 @@
-// let I = { 
-//     num: 1,
-// };
-
-// let V = { 
-//     num: 5,
-// };
-
-// let X = { 
-//     num: 10,
-// };
-
-// let L = { 
-//     num: 50,
-// };
-
-// let C = { 
-//     num: 100,
-// };
-
-// let D = { 
-//     num: 500,
-// };
-
-// let M = { 
-//     num: 1000,
-// };
-
-// console.log(C[0].num);
-
+// Primeira versao, usando array
 function romanToArabic(romanNumber) {
-    let I = { 
-        num: 1,
-    };
     
-    let V = { 
-        num: 5,
-    };
-    
-    let X = { 
-        num: 10,
-    };
-    
-    let L = { 
-        num: 50,
-    };
-    
-    let C = { 
-        num: 100,
-    };
-    
-    let D = { 
-        num: 500,
-    };
-    
-    let M = { 
-        num: 1000,
-    };
-
-    inversedRomanNumber = romanNumber.split('').reverse();
-    console.log(romanNumber);
-    console.log(inversedRomanNumber);
-        for (let currentNumber of inversedRomanNumber) {
-            console.log(currentNumber);
-            // console.log(inversedRomanNumber[(currentNumber - 1)]);
-            // if (currentNumber <= inversedRomanNumber.length) {
-
-            // }
+romanNumber = romanNumber.toLowerCase();
+let inversedRomanNumber = romanNumber.split('').reverse();
+let decodedNumber = [];
+    for (let currentRomanNumber of inversedRomanNumber) {
+        if (currentRomanNumber === 'i') {
+            decodedNumber.push(1);
         }
-        console.log('aaaaaaa');
-        for (let currentNumber of romanNumber) {
-            console.log(currentNumber);
-            // console.log(inversedRomanNumber[(currentNumber - 1)]);
-            // if (currentNumber <= inversedRomanNumber.length) {
-
-            // }
+        if (currentRomanNumber === 'v') {
+            decodedNumber.push(5);
         }
-        console.log('aaaaaaa');
+        if (currentRomanNumber === 'x') {
+            decodedNumber.push(10);
+        }
+        if (currentRomanNumber === 'l') {
+            decodedNumber.push(50);
+        }
+        if (currentRomanNumber === 'c') {
+            decodedNumber.push(100);
+        }
+        if (currentRomanNumber === 'd') {
+            decodedNumber.push(500);
+        }
+        if (currentRomanNumber === 'm') {
+            decodedNumber.push(1000);
+        }
+    }
+
+let sum = decodedNumber[0];
+
+for (let index = 0; index < decodedNumber.length; index += 1) {
+    if (decodedNumber[index] <= decodedNumber[index + 1]) {
+        sum += decodedNumber[index + 1];
+    } else if (decodedNumber[index] > decodedNumber[index + 1]) {
+        sum -= decodedNumber[index + 1];
+    }
 }
-
+return sum;
+}
 console.log(romanToArabic('MCMLXXXVI'));
+console.log(romanToArabic('MMXVIII'));
+console.log(romanToArabic('XI'));
 
-// for (index = 0 ; index < inversedRomanNumber.length ; index += 1) {
-//     if (i <= romanNumber.length - 2){
-//         if ()
-//     }
-// }
+//Segunda versao, usando objeto
+function romanToArabic(romanNumber) {
+romanNumber = romanNumber.toLowerCase();
+let inversedRomanNumber = romanNumber.split('').reverse();
+let romanNumbersList = {
+    i: 1,
+    v: 5,
+    x: 10,
+    l: 50,
+    c: 100,
+    d: 500,
+    m: 1000,
+}
+sum = romanNumbersList[inversedRomanNumber[0]];
 
+for (let index = 0; index < inversedRomanNumber.length; index += 1) {
+    if (romanNumbersList[inversedRomanNumber[index]] <= romanNumbersList[inversedRomanNumber[index + 1]]) {
+        sum += romanNumbersList[inversedRomanNumber[index + 1]];
+    } else if (romanNumbersList[inversedRomanNumber[index]] > romanNumbersList[inversedRomanNumber[index + 1]]) {
+        sum -= romanNumbersList[inversedRomanNumber[index + 1]];
+    }
+}
+return sum;
+}
+console.log(romanToArabic('MCMLXXXVI'));
+console.log(romanToArabic('MMXVIII'));
+console.log(romanToArabic('XI'));
 
-
-// n 1 2 3 4 5
-// i 0 1 2 3 4
-
-// let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
-// let multiplied = [];
-
-// for (i = 0 ; i < numbers.length ; i += 1) {
-//     if(i + 1 === numbers.length) {
-//         multiplied.push(numbers[i] * 2)
-//     } else {
-//         multiplied.push(numbers[i] * numbers[i + 1])
-//     }
-
-// }
-// console.log(multiplied);
+//Terceira versao, com objeto e sem .reverse()
+function romanToArabic(romanNumber) {
+    romanNumber = romanNumber.toLowerCase();
+    // let inversedRomanNumber = romanNumber.split('').reverse();
+    let romanNumbersList = {
+        i: 1,
+        v: 5,
+        x: 10,
+        l: 50,
+        c: 100,
+        d: 500,
+        m: 1000,
+    }
+    sum = romanNumbersList[romanNumber[romanNumber.length - 1]];
+    
+    for (let index in romanNumber) {
+        if (romanNumbersList[romanNumber[romanNumber.length - 1 -index]] <= romanNumbersList[romanNumber[romanNumber.length - 2 -index]]) {
+            sum += romanNumbersList[romanNumber[romanNumber.length - 2 -index]];
+        }  
+        if (romanNumbersList[romanNumber[romanNumber.length - 1 -index]] > romanNumbersList[romanNumber[romanNumber.length - 2 -index]]) {
+            sum -= romanNumbersList[romanNumber[romanNumber.length - 2 -index]];
+        }
+    }
+    return sum;
+}
+console.log(romanToArabic('MCMLXXXVI'));
+console.log(romanToArabic('MMXVIII'));
+console.log(romanToArabic('XI'));
