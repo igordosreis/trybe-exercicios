@@ -24,7 +24,7 @@ let fruitQuantity = {};
 
 for (let fruit of basket) {
   //A logica do if abaixo é: enquanto objeto[variavelComONomeDaChave] estiver vazia, o resultado booleano seria false; mas como tem o operador NOT (!) na frente do objeto, enquanto ela estiver vazia o resultado booleano é true. Entao, a cada passada do for of, é primeiro verificado se a chave do objetvo existe e esta vazia; caso positivo, a chave é criada com o nome atual contido na variavel fruit e com valor zero; caso negativo, adiciona-se 1 nessa chave.
-  if (fruitQuantity[fruit]) { //if (!fruitQuantity[fruit]) é o mesmo que escrever if (!fruitQuantity[fruit] === true)
+  if (!fruitQuantity[fruit]) { //if (!fruitQuantity[fruit]) é o mesmo que escrever if (!fruitQuantity[fruit] === true)
     fruitQuantity[fruit] = 0;
    } 
   fruitQuantity[fruit] += 1;
