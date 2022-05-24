@@ -196,11 +196,9 @@ function taskClassAdd() {
         // console.log(taskSelector.className);
         if (taskSelector.className === 'task') {
             event.target.className += ' selected';
-            console.log(taskSelector.className);
         } else // Porque eu preciso desse else para que a funcao funcione corretamente? Porque somente o 2o if nao basta?
         if (taskSelector.className === 'task selected') {
             event.target.className = 'task';
-            console.log(taskSelector.className);
         }
     })
 };
@@ -215,23 +213,11 @@ taskClassAdd();
 
 function eventAdd() {
     const daySelector = document.querySelector('#days');
-    // const taskSelector = document.querySelector('.task.selected'); // Nao funciona, o taskSelector fica nulo
+    // const taskSelector = document.querySelector('.task.selected'); // Nao funciona, pois o taskSelector cria uma lista estatica no momento que ele primeiro surge. Já o getElementsByClassName cria listas dinamicas que incluem e excluem itens a medida que eles sao criados ou deletados.
     const taskSelector = document.getElementsByClassName('task selected'); // document.getElementsByClassName('selected'); Tambem funciona
-    // console.log(taskSelector[0]);
-    // const taskSelector = document.getElementsByClassName('.task selected');
-    // console.log(taskSelector[0]);
-    // const regularTask = document.querySelector('.task');
-    
-    daySelector.addEventListener('click', function(event){
-
-        // console.log(taskSelector);
-        // console.log(taskSelector[0]);
-        // const newDayColor = taskSelector.style.backgroundColor;
+    daySelector.addEventListener('click', function(event) {
         const newDayColor = taskSelector[0].style.backgroundColor;
         const originalFontColor = 'rgb(119, 119, 119)';
-        // console.log(daySelector.style.backgroundColor);
-        console.log(newDayColor);
-        console.log(originalFontColor);
         if (event.target.style.color === newDayColor) {
             event.target.style.color = originalFontColor;
         } else {
