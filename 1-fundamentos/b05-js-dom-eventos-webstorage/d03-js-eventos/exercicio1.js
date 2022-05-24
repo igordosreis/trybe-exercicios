@@ -122,23 +122,37 @@ fridaysHighlight();
 
     //Dica - Propriedade: event.target. https://developer.mozilla.org/en-US/docs/Web/API/Event/target
 
-function zoomIn() {
+function zoomInAndOut() {
     const daysInsideUl = document.querySelector('#days');
 
     daysInsideUl.addEventListener('mouseover', function(event) {
+        // event.target.style.transform = 'scale(1.3)';
         event.target.style.fontSize = 'xx-large';
     })
-};
-zoomIn();
-
-function zoomOut() {
-    const daysInsideUl = document.querySelector('#days');
-
     daysInsideUl.addEventListener('mouseout', function(event) {
-        event.target.style.fontSize = 'medium';
+        // event.target.style.transform = 'scale(1)';
+        event.target.style.fontSize = '20px';
     })
 };
-zoomOut();
+zoomInAndOut();
+
+// function zoomIn() {
+//     const daysInsideUl = document.querySelector('#days');
+
+//     daysInsideUl.addEventListener('mouseover', function(event) {
+//         event.target.style.fontSize = 'xx-large';
+//     })
+// };
+// zoomIn();
+
+// function zoomOut() {
+//     const daysInsideUl = document.querySelector('#days');
+
+//     daysInsideUl.addEventListener('mouseout', function(event) {
+//         event.target.style.fontSize = '20px';
+//     })
+// };
+// zoomOut();
 
 
 // 7 -  Implemente uma função que adiciona uma tarefa personalizada ao calendário. A função deve receber como parâmetro a string com o nome da tarefa (ex: "cozinhar") e criar dinamicamente um elemento com a tag <span> contendo a tarefa.
@@ -176,18 +190,95 @@ addColorToTask('turquoise');
     // Ao clicar novamente no elemento, a sua classe deverá voltar a ser somente task, ou seja, esta tarefa está deixando de ser uma tarefa selecionada.
 
 function taskClassAdd() {
-    const taskSelecter = document.querySelector('.task');
+    const taskSelector = document.querySelector('.task');
 
-    taskSelecter.addEventListener('click', function(event) {
-        console.log(taskSelecter.className);
-        if (taskSelecter.className === 'task') {
+    taskSelector.addEventListener('click', function(event) {
+        // console.log(taskSelector.className);
+        if (taskSelector.className === 'task') {
             event.target.className += ' selected';
-            console.log(taskSelecter.className);
+            console.log(taskSelector.className);
         } else // Porque eu preciso desse else para que a funcao funcione corretamente? Porque somente o 2o if nao basta?
-        if (taskSelecter.className === 'task selected') {
+        if (taskSelector.className === 'task selected') {
             event.target.className = 'task';
-            console.log(taskSelecter.className);
+            console.log(taskSelector.className);
         }
     })
 };
 taskClassAdd();
+
+
+// 10 -  Implemente uma função que adiciona um evento que, ao clicar em um dia do mês no calendário, atribua a este dia a cor da legenda da sua tarefa selecionada.
+
+    // Ao clicar novamente no dia com a cor da legenda, a sua cor deverá voltar à configuração inicial rgb(119,119,119)
+
+// PRIMEIRA VERSAO - Porque nao funciona com querySelector?
+
+function eventAdd() {
+    const daySelector = document.querySelector('#days');
+    // const taskSelector = document.querySelector('.task.selected'); // Nao funciona, o taskSelector fica nulo
+    const taskSelector = document.getElementsByClassName('task selected'); // document.getElementsByClassName('selected'); Tambem funciona
+    // console.log(taskSelector[0]);
+    // const taskSelector = document.getElementsByClassName('.task selected');
+    // console.log(taskSelector[0]);
+    // const regularTask = document.querySelector('.task');
+    
+    daySelector.addEventListener('click', function(event){
+
+        // console.log(taskSelector);
+        // console.log(taskSelector[0]);
+        // const newDayColor = taskSelector.style.backgroundColor;
+        const newDayColor = taskSelector[0].style.backgroundColor;
+        const originalFontColor = 'rgb(119, 119, 119)';
+        // console.log(daySelector.style.backgroundColor);
+        console.log(newDayColor);
+        console.log(originalFontColor);
+        if (event.target.style.color === newDayColor) {
+            event.target.style.color = originalFontColor;
+        } else {
+            event.target.style.color = newDayColor;
+        }
+    });
+};
+eventAdd();
+
+
+// SEGUNDA VERSAO - Funciona
+
+// const daySelector = document.querySelector('#days');
+// function eventAdd(event) {
+//     const taskSelector = document.querySelector('.task.selected');
+//     console.log(taskSelector);
+//     // const regularTask = document.querySelector('.task');
+//     const newDayColor = taskSelector.style.backgroundColor;
+//     const originalBackgroundColor = 'rgb(119, 119, 119)';
+//     // console.log(daySelector.style.backgroundColor);
+//     console.log(newDayColor);
+//     console.log(originalBackgroundColor);
+//     if (event.target.style.color === newDayColor) {
+//         event.target.style.color = originalBackgroundColor;
+//     } else {
+//         event.target.style.color = newDayColor;
+//     }  
+// };
+// daySelector.addEventListener('click', eventAdd);
+
+
+// // GABARITO
+
+// function setDayColor() {
+//     let selectedTask = document.getElementsByClassName('task selected');
+//     let days = document.querySelector('#days');
+//     let taskDiv = document.querySelector('.task');
+//     let taskColor = taskDiv.style.backgroundColor;
+    
+//     days.addEventListener('click', function(event){
+//       let eventTargetColor = event.target.style.color;
+//       if (selectedTask.length > 0 && eventTargetColor !== taskColor) {
+//         let color = selectedTask[0].style.backgroundColor;
+//         event.target.style.color = color;
+//       } else if (eventTargetColor === taskColor && selectedTask.length !== 0) {
+//         event.target.style.color = 'rgb(119,119,119)';
+//       }
+//     });
+//   };
+//   setDayColor();
