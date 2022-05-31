@@ -262,8 +262,8 @@ eventAdd();
 //
 //     days.addEventListener('click', function(event){
 //       let eventTargetColor = event.target.style.color;
-//       if (selectedTask.length > 0 && eventTargetColor !== taskColor) { //A forma como entendo esse if é que ele só vai alterar o backgroundcolor do alvo que disparou o evento se 1) existe algo com a classe selected, logo a  
-//'coleção' com 1 elemento retornada pelo querySelector vai ter um comprimento maior que zero e 2) se o backgroundcolor do alvo do evento que disparou a funcao é diferente do backgroundcolor da tarefa (.task) que, nesse caso, coincide com a tarefa selecionada (.task selected).
+//       if (selectedTask.length > 0 && eventTargetColor !== taskColor) { //A forma como entendo esse if é que ele só vai alterar o color do alvo que disparou o evento se 1) existe algo com a classe selected, logo a  
+//'coleção' com 1 elemento retornada pelo querySelector vai ter um comprimento maior que zero e 2) se a color do alvo do evento que disparou a funcao é diferente do backgroundcolor da tarefa (.task) que, nesse caso, coincide com a tarefa selecionada (.task selected).
 // Na época que fiz esse exercício, eu não tinha entendido o propósito do (1) pois nao estava ciente do que exatamente o querySelector retorna, mas eventualmente entendi durante os projetos.
 //        
 //         let color = selectedTask[0].style.backgroundColor;
