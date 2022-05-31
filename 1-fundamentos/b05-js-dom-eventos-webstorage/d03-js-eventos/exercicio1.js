@@ -255,7 +255,7 @@ eventAdd();
 //     let selectedTask = document.getElementsByClassName('task selected');
 //     let days = document.querySelector('#days');
 //     let taskDiv = document.querySelector('.task');
-//     let taskColor = taskDiv.style.backgroundColor; //Se eu tenho que colocir o dia com a mesma cor da tarefa selecionada (com a classe 'task selected'), porque 
+//     let taskColor = taskDiv.style.backgroundColor; //Se eu tenho que colorir o dia com a mesma cor da tarefa selecionada (com a classe 'task selected'), porque 
 //tambem buscar pela div com a classe task e pegar o backgroundcolor dela, alem de buscar pela div com a classe selected?  
 //Da forma como o calendario foi feito só existe uma tarefa para se selecionada, então isso não faz diferença para o funcionamento da função, 
 //mas como eu ainda estava solidificando meu conhecimento ao resolver essa questao, eu nao entendi o proposito disso e se isso iria interferir no funcionamento da funcao.
