@@ -257,7 +257,7 @@ eventAdd();
 //     let taskDiv = document.querySelector('.task');
 //     let taskColor = taskDiv.style.backgroundColor; //Se eu tenho que colorir o dia com a mesma cor da tarefa selecionada (com a classe 'task selected'), porque 
 //tambem buscar pela div com a classe task e pegar o backgroundcolor dela, alem de buscar pela div com a classe selected?  
-//Da forma como o calendario foi feito só existe uma tarefa que pode ser selecionada, então isso não faz diferença para o funcionamento da função, 
+//Da forma como o calendario foi feito só existe uma tarefa que pode ser selecionada, então usar '.task' ou '.task selected' provavelmente não faz diferença para o funcionamento da função, 
 //mas como eu ainda estava solidificando meu conhecimento ao resolver essa questao, eu nao entendi o proposito de buscar por '.task' e '.task selected' e se isso iria interferir no funcionamento da funcao.
 //
 //     days.addEventListener('click', function(event){
