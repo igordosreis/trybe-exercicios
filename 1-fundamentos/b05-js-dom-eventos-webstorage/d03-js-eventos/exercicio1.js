@@ -255,14 +255,22 @@ eventAdd();
 //     let selectedTask = document.getElementsByClassName('task selected');
 //     let days = document.querySelector('#days');
 //     let taskDiv = document.querySelector('.task');
-//     let taskColor = taskDiv.style.backgroundColor;
-    
+//     let taskColor = taskDiv.style.backgroundColor; //Se eu tenho que colocir o dia com a mesma cor da tarefa selecionada (com a classe 'task selected'), porque 
+//tambem buscar pela div com a classe task e pegar o backgroundcolor dela, alem de buscar pela div com a classe selected?  
+//Da forma como o calendario foi feito só existe uma tarefa para se selecionada, então isso não faz diferença para o funcionamento da função, 
+//mas como eu ainda estava solidificando meu conhecimento ao resolver essa questao, eu nao entendi o proposito disso e se isso iria interferir no funcionamento da funcao.
+//
 //     days.addEventListener('click', function(event){
 //       let eventTargetColor = event.target.style.color;
-//       if (selectedTask.length > 0 && eventTargetColor !== taskColor) {
+//       if (selectedTask.length > 0 && eventTargetColor !== taskColor) { //A forma como entendo esse if é que ele só vai alterar a cor do alvo que disparou o evento se 1) existe algo com a classe selected, logo a  
+//coleção com 1 elemento retornada peloquerySelector vai ter um comprimento maior que zero e 2) se a cor do background do alvo do evento que disparou a funcao é diferente da cor de background da tarefa (que coincide com a tarefa selecionada, pois
+//só existe uma tarefa). Na época que fiz esse exercício, eu não tinha entendido o propósito do (1) pois nao estava ciente do que exatamente o querySelector retorna, mas eventualmente entendi durante os projetos.
+//        
 //         let color = selectedTask[0].style.backgroundColor;
 //         event.target.style.color = color;
-//       } else if (eventTargetColor === taskColor && selectedTask.length !== 0) {
+//       } else if (eventTargetColor === taskColor && selectedTask.length !== 0) { //O proposito da segunda condicao desse if é o mesmo do primeira condição do outro if: verificar se existe algo com a classe selected. Mas na epoca
+//desse exercicio eu nao sabia do proposito de usar o selectedTask.length, como falei acima. Entao essa condicional desse if ser diferente da primeira condicional do outro if me deixou muito confuso pois imediatamente assumi que o proposito das duas condicionais
+//fosse diferentes. Talvez adicionar algumas notas explicativas sobre esses detalhes do gabarito seja de grande ajuda.
 //         event.target.style.color = 'rgb(119,119,119)';
 //       }
 //     });
