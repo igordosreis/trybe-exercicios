@@ -44,6 +44,7 @@ function clearFields() {
       userInput.checked = false;
     }
     textArea.value = '';
+    document.querySelector('#dropdown').selectedIndex = -1; //'selectedIndex = 0' retorna para a primeira opcao, caso ela esteja disponivel, ou retorna para nenhuma opcao, caso a primeira opcao nao esteja disponivel; e '-1' retorna para nenhuma das opcoes disponiveis
 }
 
 function enableSubmit() {
@@ -51,8 +52,6 @@ function enableSubmit() {
     const agreement = document.querySelector('#checkbox-1');
     submitBtn.disabled = !agreement.checked;
 }
-
-
 
 function textInputValidation() {
     const email = document.querySelector('#email-input').value.length;
