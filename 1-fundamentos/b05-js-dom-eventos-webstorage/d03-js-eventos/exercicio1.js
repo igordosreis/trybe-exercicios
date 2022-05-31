@@ -256,15 +256,15 @@ eventAdd();
 //     let days = document.querySelector('#days');
 //     let taskDiv = document.querySelector('.task');
 //     let taskColor = taskDiv.style.backgroundColor; //Se eu tenho que colorir o dia com a mesma cor da tarefa selecionada (com a classe 'task selected'), porque 
-//tambem buscar pela div com a classe task e pegar o backgroundcolor dela, alem de buscar pela div com a classe selected?  
+//tambem buscar pela div com a classe task e pegar o backgroundcolor dela, ao inves de buscar somente pela div com a classe selected e usar a cor de background dela?  
 //Da forma como o calendario foi feito só existe uma tarefa que pode ser selecionada, então usar '.task' ou '.task selected' provavelmente não faz diferença para o funcionamento da função, 
-//mas como eu ainda estava solidificando meu conhecimento ao resolver essa questao, eu nao entendi o proposito de buscar por '.task' e '.task selected' e se isso iria interferir no funcionamento da funcao.
+//mas como eu ainda estava solidificando meu conhecimento ao resolver essa questao, eu nao entendi o proposito de buscar pelos dois elementos e se isso iria interferir no funcionamento da funcao.
 //
 //     days.addEventListener('click', function(event){
 //       let eventTargetColor = event.target.style.color;
 //       if (selectedTask.length > 0 && eventTargetColor !== taskColor) { //A forma como entendo esse if é que ele só vai alterar a cor do alvo que disparou o evento se 1) existe algo com a classe selected, logo a  
-//coleção com 1 elemento retornada pelo querySelector vai ter um comprimento maior que zero e 2) se a cor do background do alvo do evento que disparou a funcao é diferente da cor de background da tarefa (que, nesse caso, coincide com a tarefa selecionada, pois
-//só existe uma tarefa). Na época que fiz esse exercício, eu não tinha entendido o propósito do (1) pois nao estava ciente do que exatamente o querySelector retorna, mas eventualmente entendi durante os projetos.
+//'coleção' com 1 elemento retornada pelo querySelector vai ter um comprimento maior que zero e 2) se a cor de background do alvo do evento que disparou a funcao é diferente da cor de background da tarefa (.task) que, nesse caso, coincide com a tarefa selecionada (.task selected).
+// Na época que fiz esse exercício, eu não tinha entendido o propósito do (1) pois nao estava ciente do que exatamente o querySelector retorna, mas eventualmente entendi durante os projetos.
 //        
 //         let color = selectedTask[0].style.backgroundColor;
 //         event.target.style.color = color;
