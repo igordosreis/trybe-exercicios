@@ -273,7 +273,7 @@ eventAdd();
 // caso, coincide com a tarefa selecionada (.task selected). Na época que fiz esse exercício, eu não tinha 
 // entendido o propósito da condição (1) pois não estava ciente do que exatamente o querySelector retorna,  
 // mas eventualmente entendi durante os projetos.
-//        
+//
 //         let color = selectedTask[0].style.backgroundColor;
 //         event.target.style.color = color;
 //       } else if (eventTargetColor === taskColor && selectedTask.length !== 0) { // O propósito da segunda 
@@ -281,6 +281,11 @@ eventAdd();
 // apesar de ambas estarem escritas de formas diferentes (> 0 ou !== 0) Mas, como falei acima, na época 
 // desse exercício eu não sabia do porque  usar o selectedTask.length. Então, essa diferença entre as condições 
 // me deixou muito confuso pois imediatamente assumi que o proposito delas fosse diferente. 
+// Iamgino que adicionar alguns comentários ou um vídeo curto evidenciando o propósito dessas condições pode
+// possa ajudar. Sugiro também adicionar uma nota ou exercício que evidencie uma grande diferença entre as coleções 
+// retornadas pelo querySelector e o getElementsByClassName: a primeira é estática e a segunda é dinâmica, ou seja,  
+// tem seus elementos atualizados à medida que eles são criados ou removidos.
+
 //         event.target.style.color = 'rgb(119,119,119)';
 //       }
 //     });
