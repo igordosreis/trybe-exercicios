@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="exercicio1.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="pikaday.css">
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <title>Exercicio 1</title>
+</head>
+<body>
+    <h1>Exercicio 1</h1>
+    <form action="">
+        <fieldset>
+            <legend>Formulario</legend>
+            <label for="name-input">Nome completo:
+                <input type="text" id="name-input" minlength="10" maxlength="40" placeholder="Digite seu nome completo" required>
+            </label>
+            <br>
+            <br>
+            <label for="email-input" minlength="10" maxlength="50">Email:
+                <input type="email" id="email-input" placeholder="Digite seu email" required>
+            </label>
+            <br>
+            <br>
+            <label for="">Destino preferido</label>
+            <label for="opt-1">
+                <input type="radio" id="opt-1" name="opts" value="opt1" required>Opcao 1
+            </label>
+            <label for="opt-2">
+                <input type="radio" id="opt-2" name="opts" value="opt2" required>Opcao 2
+            </label>
+            <label for="opt-3">
+                <input type="radio" id="opt-3" name="opts" value="opt3" required>Opcao 3
+            </label>
+            <label for="opt-4">
+                <input type="radio" id="opt-4" name="opts" value="opt4" required>Opcao 4
+            </label>
+            <br>
+            <br>
+            <label for="text-input">Espaco para digitar a resposta:
+                <br>
+                <textarea type="text" id="text-input" cols="35" rows="10" maxlength="500"></textarea>
+            </label>
+            <br>
+            <label for="date-input">Data:
+                <input type="date">
+            </label>
+            <br>
+            <br>
+            <input type="checkbox" id="checkbox-1" name="agree" required>Concordo 1
+            <br>
+            <input type="checkbox" id="checkbox-2" name="agree">Concordo 2
+            <br>
+            <br>
+            <label for="dropdown">Dropdown para lembrar como faz um:</label>
+            <select name="dropdown" id="dropdown">
+                <option value="none" selected disabled hidden></option>
+                <option value="opt1">Opcao 1</option>
+                <option value="opt2">Opcao 2</option>
+                <option value="opt3">Opcao 3</option>
+                <option value="opt4">Opcao 4</option>
+            </select>
+        </fieldset>
+        <button type="submit" id="send-button" disabled>Enviar</button>
+        <button type="button" id="reset-button">Apagar</button>
+    </form>
+    <script src="exercicio1.js"></script>
+    <script src="moment.js"></script>
+    <script src="pikaday.js"></script>
+</body>
+</html>
