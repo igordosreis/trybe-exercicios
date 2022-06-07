@@ -1,0 +1,164 @@
+html {
+    box-sizing: border-box;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+  
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    width: 100%;
+}
+
+header p {
+    text-align: center;
+    /* border: 1px solid red; */
+    width: 100%;
+    font-size: 4rem;
+}
+
+nav ul {
+    display: flex;
+    width: 100%;
+    list-style: none;
+    justify-content: space-evenly;
+    /* border: 1px solid green; */
+}
+
+/* nav ul li { */
+    /* border: 1px solid purple; */
+/* } */
+
+.aside-one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aside-one h2 {
+    /* border: 1px solid green; */
+    align-self: flex-start;
+}
+
+.aside-one ul {
+    list-style: none;
+    /* border: 1px solid green; */
+}
+
+.aside-two {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.aside-two ul {
+    list-style: none;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content h1,
+.main-content h2  {
+    text-align: center;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+@media screen and (max-width: 600px) {
+
+    nav {
+        /* border: 1px solid blue; */
+        margin: 1rem;
+        font-size: 1.1rem;
+    }
+
+    header p {
+        font-size: 4rem;
+        margin-top: 20px;
+    }
+    
+    .aside-one {
+        margin: 40px 0;
+    }
+
+    .aside-one h2 {
+        margin-left: 1.5rem;
+        margin-bottom: 15px;
+        font-size: 2rem;
+    }
+
+    .aside-one ul {
+        font-size: 1.1rem;
+        line-height: 25px;
+    }
+
+    .aside-two {
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    .aside-two h2 {
+        margin: 10px 0 10px 1rem;
+    }
+
+    .aside-two ul {
+        align-self: center;
+        margin-bottom: 10px;
+    }
+
+    .main-content h1 {
+        margin-top: 55px;
+        margin-bottom: 8px;
+        font-size: 1.3rem;
+    }
+
+    .main-content h2 {
+        margin-bottom: 25px;
+        font-size: 2rem;
+    }
+
+    .main-content p {
+        margin: 0 1.5rem 10px 2rem;
+        font-size: 1.1rem;
+        text-indent: 17px;
+        text-align: justify;
+    }
+
+    footer {
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    footer h3 {
+        margin: 10px 0 10px 1rem;
+    }
+
+    footer p {
+        align-self: center;
+        margin-bottom: 10px;
+        text-align: justify;
+        margin: 0.5rem 1.9rem;
+    }
+}
