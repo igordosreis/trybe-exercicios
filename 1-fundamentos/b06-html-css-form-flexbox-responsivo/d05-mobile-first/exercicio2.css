@@ -6,6 +6,8 @@ html {
     margin: 0;
     padding: 0;
     font-size: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
 }
   
 *, *:before, *:after {
@@ -16,12 +18,14 @@ html {
     display: flex;
     flex-direction: column;
     width: 100%;
+    align-items: center;
 }
 
 header {
     display: flex;
     flex-direction: column;
     width: 100%;
+    max-width: 600px;
 }
 
 header p {
@@ -29,6 +33,9 @@ header p {
     text-align: center;
     width: 100%;
     font-size: 4rem;
+    font-family: 'Abril Fatface', cursive;
+    max-width: 475px;
+    margin-top: 20px;
 }
 
 nav ul {
@@ -42,60 +49,94 @@ nav ul {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 570px;
+    margin: 40px 0;
 }
 
 .aside-one h2 {
     align-self: flex-start;
+    font-weight: 500;
 }
 
 .aside-one ul {
     list-style: none;
 }
 
+.aside-one ul li {
+    line-height: 160%;
+}
+
 .aside-two {
     display: flex;
     flex-direction: column;
     border: 1px solid black;
+    max-width: 495px;
+    align-self: center;
+    width: 80%;
+    margin: 20px auto;
 }
 
 .aside-two ul {
     list-style: none;
+    align-self: center;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    text-align: left;
+    margin: 0px 1.9rem 10px 1.9rem;
+}
+
+.aside-two h2 {
+    font-weight: 700;
+    margin: 10px 0 10px 1rem;
 }
 
 .main-content {
     display: flex;
     flex-direction: column;
+    line-height: 185%;
 }
 
-.main-content h1,
+.main-content h1 {
+    text-align: center;
+    font-weight: 500;
+}
+
 .main-content h2  {
     text-align: center;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.main-content p {
+    text-align: justify;
 }
 
 footer {
     display: flex;
     flex-direction: column;
     border: 1px solid black;
+    max-width: 495px;
+    width: 80%;
+    margin: 20px auto;
+}
+
+footer h3 {
+    font-weight: 700;
+    margin: 10px 0 10px 1rem;
+}
+
+footer p {
+    align-self: center;
+    text-align: justify;
+    font-size: 1.1rem;
+    margin: 0px 1.9rem 10px 1.9rem;
 }
 
 @media screen and (max-width: 600px) {
 
-    header p {
-        max-width: 475px;
-    }
-
     nav {
         margin: 1rem;
         font-size: 1.2rem;
-    }
-
-    header p {
-        font-size: 4rem;
-        margin-top: 20px;
-    }
-    
-    .aside-one {
-        margin: 40px 0;
     }
 
     .aside-one h2 {
@@ -107,23 +148,6 @@ footer {
     .aside-one ul {
         font-size: 1.2rem;
         line-height: 25px;
-    }
-
-    .aside-two {
-        width: 80%;
-        margin: 20px auto;
-    }
-
-    .aside-two h2 {
-        margin: 10px 0 10px 1rem;
-    }
-
-    .aside-two ul {
-        align-self: center;
-        margin-bottom: 10px;
-        font-size: 1.1rem;
-        text-align: left;
-        margin: 0px 1.9rem 10px 1.9rem;
     }
 
     .main-content h1 {
@@ -139,9 +163,8 @@ footer {
 
     .main-content p {
         margin: 0 1.5rem 10px 1.5rem;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         text-indent: 17px;
-        text-align: justify;
     }
 
     .main-content p:nth-of-type(1)::first-letter {
@@ -151,20 +174,96 @@ footer {
         margin: 0 .3rem 0 0;
         line-height: 1; */
     }
+}
 
-    footer {
-        width: 80%;
-        margin: 20px auto;
+@media screen and (min-width: 601px) and (max-width: 999px) {
+
+    nav {
+        margin: 1.25rem;
+        font-size: 1.4rem;
     }
 
-    footer h3 {
-        margin: 10px 0 10px 1rem;
+    .aside-one h2 {
+        margin-left: 1.5rem;
+        margin-bottom: 15px;
+        font-size: 2.3rem;
     }
 
-    footer p {
-        align-self: center;
-        text-align: justify;
-        font-size: 1.1rem;
-        margin: 0px 1.9rem 10px 1.9rem;
+    .aside-one ul {
+        font-size: 1.4rem;
+        line-height: 25px;
+    }
+
+    .main-content h1 {
+        margin-top: 75px;
+        margin-bottom: 22px;
+        font-size: 1.6rem;
+    }
+
+    .main-content h2 {
+        margin-bottom: 35px;
+        font-size: 2.3rem;
+    }
+
+    .main-content p {
+        margin: 0 2.05rem 1rem 2.05rem;
+        font-size: 1.4rem;
+        text-indent: 27px;
+        line-height: 205%;
+        max-width: 660px;
+    }
+
+    .main-content p:nth-of-type(1)::first-letter {
+        font-size: 2.3rem;
+        /* float: left;
+        padding: 0 .3rem;
+        margin: 0 .3rem 0 0;
+        line-height: 1; */
+    }
+}
+
+@media screen and (min-width: 1000px) {
+
+    nav {
+        margin: 1.25rem;
+        font-size: 1.4rem;
+    }
+
+    .aside-one h2 {
+        /* margin-left: 1rem; */
+        margin-bottom: 15px;
+        font-size: 2.6rem;
+    }
+
+    .aside-one ul {
+        font-size: 1.55rem;
+        line-height: 25px;
+    }
+
+    .main-content h1 {
+        margin-top: 75px;
+        margin-bottom: 22px;
+        font-size: 1.85rem;
+    }
+
+    .main-content h2 {
+        margin-bottom: 35px;
+        font-size: 2.6rem;
+    }
+
+    .main-content p {
+        margin: 0 2.05rem 1rem 2.05rem;
+        font-size: 1.7rem;
+        text-indent: 37px;
+        line-height: 205%;
+        max-width: 800px;
+    }
+
+    .main-content p:nth-of-type(1)::first-letter {
+        font-size: 2.8rem;
+        /* float: left;
+        padding: 0 .3rem;
+        margin: 0 .3rem 0 0;
+        line-height: 1; */
     }
 }
