@@ -6,7 +6,7 @@ const oddsAndEvens = [13, 3, 4, 10, 7, 2];
 
 console.log(oddsAndEvens); // será necessário alterar essa linha 
 
-function numberSort (numbersArray) {
+const numberSort = (numbersArray) => {
     for (let arrayRoamer = 0; arrayRoamer < numbersArray.length; arrayRoamer += 1) {
         for (let numberCompare = 0; numberCompare < numbersArray.length - arrayRoamer; numberCompare += 1) {
             if (numbersArray[numberCompare] >= numbersArray[numberCompare + 1]) {

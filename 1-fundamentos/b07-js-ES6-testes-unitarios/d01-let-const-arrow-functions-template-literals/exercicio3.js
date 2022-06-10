@@ -44,3 +44,6 @@ console.log(fatorialWhile1(0));
 const fatorialRec = (numero) => (numero > 1) ? numero * fatorialRec(numero - 1) : 1;
 console.log(fatorialRec(4));
 console.log(fatorialRec(0));
+
+
+
