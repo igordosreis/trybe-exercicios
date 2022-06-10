@@ -32,7 +32,7 @@ header p {
     align-self: center;
     text-align: center;
     width: 100%;
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-family: 'Abril Fatface', cursive;
     max-width: 475px;
     margin-top: 20px;
@@ -178,6 +178,10 @@ footer p {
 
 @media screen and (min-width: 601px) and (max-width: 999px) {
 
+    header p {
+        font-size: 4rem;
+    }
+
     nav {
         margin: 1.25rem;
         font-size: 1.4rem;
@@ -223,6 +227,10 @@ footer p {
 }
 
 @media screen and (min-width: 1000px) {
+
+    header p {
+        font-size: 4.5rem;
+    }
 
     nav {
         margin: 1.25rem;
