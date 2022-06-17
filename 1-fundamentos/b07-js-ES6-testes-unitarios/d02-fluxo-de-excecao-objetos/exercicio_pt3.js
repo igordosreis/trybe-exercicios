@@ -74,9 +74,10 @@ const getValueByNumber = (obj, number) =>  Object.values(obj)[number];
 console.log(getValueByNumber(lesson1, 0));
 
 // 8. Crie uma função que verifique se o par (chave / valor) existe na função. Essa função deve possuir três parâmetros, sendo eles: o objeto, o nome da chave e o valor da chave. Exemplo: 
-const verifyPair = (obj, key, value) => Object.entries(obj).join(', ').includes(`${key},${value}`);
+const verifyPair = (obj, key, value) => Object.entries(obj).join(', ').includes(`${key},${value}`); // Como é um objeto, no lugar do .join(', '), seria mais adequado usar um JSON.stringify()
 console.log(verifyPair(lesson3, 'turno', 'noite'));
 console.log(verifyPair(lesson3, 'professor', 'Maria Clara'));
+// Como é um objeto, no lugar do .join(', '), seria mais adequado usar um JSON.stringify()
 
 // GABARITO
 // const verifyPair = (obj, key, value) => {
@@ -172,3 +173,6 @@ console.log(Object.entries(allLessons)[0][0]);
 console.log(Object.entries(allLessons)[0][1]);
 console.log(Object.entries(allLessons)[0][1].turno);
 console.log(Object.entries(allLessons)[0][1]['turno']);
+
+console.log(lesson1);
+console.log(Object.entries(lesson1).join(', '));
