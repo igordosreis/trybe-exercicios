@@ -42,22 +42,46 @@ const mageDamage = (mage) => {
 
 const gameActions = {
   warriorTurn: (damage) => {
-    warrior.damage = damage(warrior);
-    dragon.healthPoints -=  warrior.damage;
+    if (warrior.healthPoints > 0) {
+      warrior.damage = damage(warrior);
+      dragon.healthPoints -=  warrior.damage;
+    } else warrior.healthPoints = 'O gurreiro morreu!';
   },
   mageTurn: (damage) => {
-    mage.damage = damage(mage).damage;
-    mage.mana -= damage(mage).manaSpent;
-    dragon.healthPoints -= mage.damage;
+    if (mage.healthPoints > 0) {
+      mage.damage = damage(mage).damage;
+      mage.mana -= damage(mage).manaSpent;
+      dragon.healthPoints -= mage.damage;
+    } else mage.healthPoints = 'O mago morreu!';
   },
   dragonTurn: (damage) => {
-    dragon.damage = damage(dragon);
-    mage.healthPoints -= dragon.damage;
-    warrior.healthPoints -= dragon.damage;
+    if (dragon.healthPoints > 0) {
+      dragon.damage = damage(dragon);
+      mage.healthPoints -= dragon.damage;
+      warrior.healthPoints -= dragon.damage;
+    } else dragon.healthPoints = 'O dragao morreu!';
   },
   currentBattleMembers: () => battleMembers,
 
 };
+
+gameActions.warriorTurn(warriorDamage);
+gameActions.mageTurn(mageDamage);
+gameActions.dragonTurn(dragonDamage);
+
+console.log(gameActions.currentBattleMembers());
+
+gameActions.warriorTurn(warriorDamage);
+gameActions.mageTurn(mageDamage);
+gameActions.dragonTurn(dragonDamage);
+
+console.log(gameActions.currentBattleMembers());
+
+gameActions.warriorTurn(warriorDamage);
+gameActions.mageTurn(mageDamage);
+gameActions.dragonTurn(dragonDamage);
+
+console.log(gameActions.currentBattleMembers());
 
 gameActions.warriorTurn(warriorDamage);
 gameActions.mageTurn(mageDamage);
