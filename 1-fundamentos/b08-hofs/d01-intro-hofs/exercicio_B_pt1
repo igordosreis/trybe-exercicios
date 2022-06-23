@@ -1,0 +1,90 @@
+const mage = {
+  healthPoints: 130,
+  intelligence: 45,
+  mana: 125,
+  damage: undefined,
+};
+
+const warrior = {
+  healthPoints: 200,
+  strength: 30,
+  weaponDmg: 2,
+  damage: undefined,
+};
+
+const dragon = {
+  healthPoints: 350,
+  strength: 50,
+  damage: undefined,
+};
+
+const battleMembers = { mage, warrior, dragon };
+
+const dragonDamage = (dragon) => {
+  return Math.floor(Math.random() * (dragon.strength + 1 - 15) + 15);
+}
+
+const warriorDamage = (warrior) => {
+  return Math.floor(Math.random() * ((warrior.strength * warrior.weaponDmg) + 1 - warrior.strength) + warrior.strength);
+}
+
+const mageDamage = (mage) => {
+  const mageCurrent = {};
+  if(mage.mana >= 15) {
+      mageCurrent.damage = Math.floor(Math.random() * ((mage.intelligence * 2) + 1 - mage.intelligence) + mage.intelligence);
+      mageCurrent.manaSpent = 15;
+      return mageCurrent;
+  }
+  mageCurrent.damage = 'Não possui mana suficiente';
+  mageCurrent.manaSpent = 0;
+  return mageCurrent;
+}
+
+const gameActions = {
+  warriorTurn: (damage) => {
+    if (warrior.healthPoints > 0) {
+      warrior.damage = damage(warrior);
+      dragon.healthPoints -=  warrior.damage;
+    } else warrior.healthPoints = 'O gurreiro morreu!';
+  },
+  mageTurn: (damage) => {
+    if (mage.healthPoints > 0) {
+      mage.damage = damage(mage).damage;
+      mage.mana -= damage(mage).manaSpent;
+      dragon.healthPoints -= mage.damage;
+    } else mage.healthPoints = 'O mago morreu!';
+  },
+  dragonTurn: (damage) => {
+    if (dragon.healthPoints > 0) {
+      dragon.damage = damage(dragon);
+      mage.healthPoints -= dragon.damage;
+      warrior.healthPoints -= dragon.damage;
+    } else dragon.healthPoints = 'O dragao morreu!';
+  },
+  currentBattleMembers: () => battleMembers,
+
+};
+
+gameActions.warriorTurn(warriorDamage);
+gameActions.mageTurn(mageDamage);
+gameActions.dragonTurn(dragonDamage);
+
+console.log(gameActions.currentBattleMembers());
+
+gameActions.warriorTurn(warriorDamage);
+gameActions.mageTurn(mageDamage);
+gameActions.dragonTurn(dragonDamage);
+
+console.log(gameActions.currentBattleMembers());
+
+gameActions.warriorTurn(warriorDamage);
+gameActions.mageTurn(mageDamage);
+gameActions.dragonTurn(dragonDamage);
+
+console.log(gameActions.currentBattleMembers());
+
+gameActions.warriorTurn(warriorDamage);
+gameActions.mageTurn(mageDamage);
+gameActions.dragonTurn(dragonDamage);
+
+console.log(gameActions.currentBattleMembers());
