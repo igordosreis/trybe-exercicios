@@ -143,7 +143,6 @@ function authorUnique(arr) {
     arr.sort((a, b) => {
         if (a.author.birthYear === b.author.birthYear) {
             aux = false;
-            return aux;
         }
         return a.author.birthYear - b.author.birthYear
     })
