@@ -208,7 +208,7 @@ function studentAverage(studentsArray, gradesArray) {
   const studentsObjArray = studentsArray.map((student, index) => ({
     name: student,
     average: (gradesArray[index].reduce((total, grade) => total + grade, 0) / gradesArray[index].length),
-  }))
+  }));
   return studentsObjArray;
 }
 console.log(`Exercicio 6:`);
