@@ -128,14 +128,19 @@ const estudantes = [
     },
 ];
 
-const studentBestSubject = (arr) => 
-arr.map((student) => student.reduce((best, cur) => {
-    if (best.materias.nota > cur.materias.nota) {
-        const studentBest = {};
-        studentBest.name = best.nome;
-        studentBest.materia = best.materia.name;
-        return studentBest;
-    }
-    else return cur.materias.nota;
+const studentBestSubject = (arr) => arr.map((student) => ({ 
+  name: student.nome,
+  materia: student.materias.reduce((best, cur) => (best.nota > cur.nota ? best : cur)).name
+  // materia: student.materias.reduce((best, cur) => (best.nota > cur.nota ? best.nota : cur.nota))
 }));
+// arr.map((student) => student.reduce((best, cur) => {
+//     if (best.materias.nota > cur.materias.nota) {
+//         const studentBest = {};
+//         studentBest.name = best.nome;
+//         studentBest.materia = best.materia.name;
+//         return studentBest;
+//     }
+//     else return cur.materias.nota;
+// }));
+
 console.log(studentBestSubject(estudantes));
