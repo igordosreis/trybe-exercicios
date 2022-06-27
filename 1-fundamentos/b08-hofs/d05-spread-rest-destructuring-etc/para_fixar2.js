@@ -55,6 +55,15 @@ console.log(getPosition(-19.8157, -43.9542));
 
 
 // Default Parameters
+
+const greeting = (user) => {
+    const userDisplay = typeof user === 'undefined' ? 'usuário' : user;
+    console.log(typeof userDisplay);
+    console.log(`Welcome ${userDisplay}!`);
+  };
+const greeting = (user = 'usuário') => console.log(`Welcome ${user}!`);
+greeting(); // Welcome usuário!
+
 // Para fixar
 
 const multiply = (number, value = 1) => {
@@ -63,4 +72,5 @@ const multiply = (number, value = 1) => {
 };
   
 console.log(multiply(8));
+
 
