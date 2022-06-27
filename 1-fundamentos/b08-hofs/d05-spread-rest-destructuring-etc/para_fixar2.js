@@ -56,11 +56,11 @@ console.log(getPosition(-19.8157, -43.9542));
 
 // Default Parameters
 
-const greeting = (user) => {
-    const userDisplay = typeof user === 'undefined' ? 'usuário' : user;
-    console.log(typeof userDisplay);
-    console.log(`Welcome ${userDisplay}!`);
-  };
+// const greeting = (user) => {
+//     const userDisplay = typeof user === 'undefined' ? 'usuário' : user;
+//     console.log(typeof userDisplay);
+//     console.log(`Welcome ${userDisplay}!`);
+//   };
 const greeting = (user = 'usuário') => console.log(`Welcome ${user}!`);
 greeting(); // Welcome usuário!
 
