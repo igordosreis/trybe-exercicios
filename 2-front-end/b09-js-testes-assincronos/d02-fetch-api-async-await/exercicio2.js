@@ -1,35 +1,37 @@
-// // Com essa sintaxe, o objeto com os dados da API só é acessível com o data.data do segundo .then.
-// // Mesmo se fosse criada uma variavel para receber o fetch, ela só seria uma Promise.
+// // Com essa sintaxe, o objeto com os dados da API inicialmente só é acessível com 
+// // o data.data do segundo .then. Entao, é necessário criar uma variável que receba o fetch
+// // e entao retorna-la.
 // const fetchCoins = () => {  
-//     fetch('https://api.coincap.io/v2/assets')
+//     const data = fetch('https://api.coincap.io/v2/assets')
 //       .then((response) => response.json())
 //       .then((data) => data.data)
 //       .catch((error) => error.toString());
+//     return  data;
 // }
 // fetchCoins();
 
 // // Com essa sintaxe, os dados da API sao acessiveis pela variavel data.
-const fetchCoins = async () => {
-    try { 
-        const response = await fetch('https://api.coincap.io/v2/assets');
-        const data = await response.json();
-        return data.data;
-    } catch {
-        error.toString();
-    }
-}
+// const fetchCoins = async () => {
+//     try { 
+//         const response = await fetch('https://api.coincap.io/v2/assets');
+//         const data = await response.json();
+//         return data.data;
+//     } catch {
+//         error.toString();
+//     }
+// }
 // fetchCoins();
 
 // // Sintaxe 'hibrida' do gabarito. Os dados da API sao acessiveis pela variavel coins.
-// const fetchCoins = async () => {
-//   const url = 'https://api.coincap.io/v2/assets';
-//   const coins = await fetch(url)
-//     .then((response) => response.json())
-//     .then((data) => data.data)
-//     .catch((error) => error.toString());
-//   return coins;
-// }
-// fetchCoins();
+const fetchCoins = async () => {
+  const url = 'https://api.coincap.io/v2/assets';
+  const coins = await fetch(url)
+    .then((response) => response.json())
+    .then((data) => data.data)
+    .catch((error) => error.toString());
+  return coins;
+}
+fetchCoins();
 
 const getUsdConversor = async () => {
     const url = 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/usd.json';
