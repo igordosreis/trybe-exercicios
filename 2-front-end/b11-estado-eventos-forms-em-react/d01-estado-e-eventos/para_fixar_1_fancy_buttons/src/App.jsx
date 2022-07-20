@@ -13,7 +13,7 @@ class App extends Component {
     this.clickCounter = this.clickCounter.bind(this);
   }
 
-  printText1() { // Pode-se usar arrow functions para declarar a funcao dentro da clase, mas isso torna a aplicacao menos performatica
+  printText1() { // Pode-se usar arrow functions para declarar a funcao dentro da clase e, por isso, nao ter que usar o .bind(), mas isso torna a aplicacao menos performatica
     console.log(this);
     console.log(Object.keys(this));
     console.log(Object.values(this));
