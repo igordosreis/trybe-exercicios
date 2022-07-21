@@ -20,19 +20,15 @@ class App extends Component {
     console.log('Texto 1');
     this.setState(( { numberOfClicksButtonOne }, _props) => ({ // Aqui foi usado desestruturacao na passagem do parametro e o retorno é implícito
       numberOfClicksButtonOne: numberOfClicksButtonOne + 1 
-    }))
-  }
+    }), () => console.log(this)) // Um dos parametros do setState é uma callback que pode ser adicionada após o objeto
+  }                              // Ela serve para garantir que qualquer codigo dentro dela so vai ser executado apos o estado ser atualizado
 
   clickCounter() {
     this.setState((previousState, _props) => { // Props é o 2o parametro da funcao setState e ele é obrigatório, mas como ele não sera utilizado, a notação _props é usada para indicar isso
       return {numberOfClicksButtonTwo: previousState.numberOfClicksButtonTwo + 1}; // Aqui o retorno é explícito e por isso deve estar entre {}
     }) // documentacao do setState https://pt-br.reactjs.org/docs/react-component.html#setstate
   }
-    // clickCounter() {
-  //   this.setState((previousState, _props) => ({ // Props é o 2o parametro da funcao setState e ele é obrigatório, mas como ele não sera utilizado, a notação _props é usada para indicar isso
-  //     numberOfClicksButtonTwo: previousState.numberOfClicksButtonTwo + 1
-  //   })) // documentacao do setState https://pt-br.reactjs.org/docs/react-component.html#setstate
-
+  
   changeButtonColorWithStyle(number) {
     return number % 2 === 0 ? 'green' : 'transparent';
   }
