@@ -9,7 +9,7 @@ class App extends React.Component {
   render() {
     return (
       <ul>
-        { tasks.map(task => Task(task)) }
+        { tasks.map(Task) }
       </ul>
     )
   }
