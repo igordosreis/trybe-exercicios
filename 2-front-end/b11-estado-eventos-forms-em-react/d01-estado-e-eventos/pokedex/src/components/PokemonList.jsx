@@ -63,6 +63,10 @@ class PokemonList extends Component {
                         text={ 'All types' }
                         onClick={ () => this.setState({ typeFilter: '' }) }
                         className={ 'type' } />
+                    {/* Mais um exemplo da sintaxe usando children */}
+                    {/* <Buttons 
+                        onClick={ () => this.setState({ typeFilter: '' }) }
+                        className={ 'type' }> All types </Buttons> */}
                     { this.createTypeButtons() }
                 </div>
             </>
