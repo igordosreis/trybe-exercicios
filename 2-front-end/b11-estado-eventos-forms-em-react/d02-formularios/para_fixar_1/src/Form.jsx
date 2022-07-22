@@ -12,8 +12,10 @@ class Form extends Component {
         }
     }
 
-    handleSelectChange = (event) => this.setState({ select: event.target.value })
+    // handleSelectChange = (event) => console.log(event);
+    // handleSelectChange = ({ target: name, value }) => this.setState({ [name]: value })
     handleInputChange = (event) => this.setState({ inputField: event.target.value })
+    handleSelectChange = (event) => this.setState({ select: event.target.value })
 
     render() {
         const { inputField, select } = this.state;
