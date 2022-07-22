@@ -6,7 +6,7 @@ class Buttons extends Component {
         return (
             <button 
                 className={ `button ${className}` }
-                onClick={ () => onClick(text) }
+                onClick={ () => onClick(text) } // Curiosidade: quando uma funcao no componente PokemonList é chamada já com um valor, o valor daquele arquivo é usado ao invés de 'text'; evitar isso é uma das vantagens de se utilizar children aqui.
                 disabled={ disabled }
                 type='button' >
                 { `${text} `}
@@ -26,14 +26,13 @@ export default Buttons;
 
 // class Buttons extends Component {
 //     render () {
-//         const { onClick, disabled, className, children } = this.props;
+//         const { text, onClick, disabled, className, children } = this.props;
 //         return (
 //             <button 
 //                 className={ `button ${className}` }
-//                 onClick={ () => onClick(type) }
+//                 onClick={ onClick }
 //                 disabled={ disabled }
 //                 type='button' >
-//                 {/* { `${type} `} */}
 //                 { children }
 //             </button>
 //         );
