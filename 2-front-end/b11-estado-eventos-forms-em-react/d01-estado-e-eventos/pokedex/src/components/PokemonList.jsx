@@ -63,8 +63,12 @@ class PokemonList extends Component {
                         text={ 'All types' }
                         onClick={ () => this.setState({ typeFilter: '' }) }
                         className={ 'type' } />
-                    {/* Mais um exemplo da sintaxe usando children */}
+                    {/* Sintaxe usando children */}
                     {/* <Buttons 
+                        onClick={ () => this.nextPokemon(filteredPokemon.length) } // nextPokemon pode receber diretamente o length como parametro, tornando desnecessario manipular o length atraves do state. Obrigado, Rubens!
+                        className={ 'next-pokemon' }
+                        disabled={ filteredPokemon.length <= 1 }> Next pokemon </Buttons>   
+                    <Buttons 
                         onClick={ () => this.setState({ typeFilter: '' }) }
                         className={ 'type' }> All types </Buttons> */}
                     { this.createTypeButtons() }
