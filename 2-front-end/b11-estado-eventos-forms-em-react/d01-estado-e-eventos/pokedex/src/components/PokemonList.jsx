@@ -125,6 +125,10 @@ export default PokemonList;
 // ______________________________________________________________________________________________
 // ______________________________________________________________________________________________
 
+// Essa solucao nao funciona. Quando um botao de tipo é criado, o length que é passado adiantado é o
+// último length registrado. Por exemplo, quando a página é carregada pela primeira vez, o length é 9.
+// Ao clicar no botão Fire, a página é renderizada com um array de comprimento 2, mas o length continua 9.
+// Para que o length seja 2, o botão Fire deve ser clicado novamente.
 
 // import { Component } from "react";
 // import pokemons from "../data";
