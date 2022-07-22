@@ -31,7 +31,6 @@ class PokemonList extends Component {
     // createTypeButtons = () => 
     //     [...new Set(pokemons.map(({ type }) => type ))] 
     //     .map((type) => <Buttons 
-    //         type = { type } 
     //         key = { type }
     //         onClick = { this.changeFilter } 
     //         className = { 'type' }> {type} </Buttons>);

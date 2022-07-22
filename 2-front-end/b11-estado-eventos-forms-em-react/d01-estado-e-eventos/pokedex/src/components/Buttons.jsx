@@ -26,7 +26,7 @@ export default Buttons;
 
 // class Buttons extends Component {
 //     render () {
-//         const { type, onClick, disabled, className, children } = this.props;
+//         const { onClick, disabled, className, children } = this.props;
 //         return (
 //             <button 
 //                 className={ `button ${className}` }
