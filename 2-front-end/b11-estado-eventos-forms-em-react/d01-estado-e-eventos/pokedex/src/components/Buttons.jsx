@@ -20,6 +20,8 @@ export default Buttons;
 // ______________________________________________________________________________________________
 // ______________________________________________________________________________________________
 
+// Sintaxe para se usar this.props.children, conforme mencionado no arquivo PokemonList
+
 // import { Component } from "react";
 
 // class Buttons extends Component {
