@@ -14,6 +14,8 @@ class Form extends Component {
 
     // handleSelectChange = (event) => console.log(event);
     // handleSelectChange = ({ target: name, value }) => this.setState({ [name]: value })
+    // Pra isso funcionar, o name do input tem que ser usado como chave do state
+    
     handleInputChange = (event) => this.setState({ inputField: event.target.value })
     handleSelectChange = (event) => this.setState({ select: event.target.value })
 
