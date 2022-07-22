@@ -22,8 +22,8 @@ class PokemonList extends Component {
         [...new Set(pokemons.map(({ type }) => type ))] // Todo o reduce anterior pode ser trocado por um new Set() https://vidafullstack.com.br/javascript/new-set-com-javascript/
         .map((type) => <Buttons 
             text = { type } 
-            key = { type }
-            onClick = { this.changeFilter } // Aqui, a sintaxe poderia ser '() => this.setState({ typeFilter: '' })', mas para fins didaticos de como pasar callbacks definidas no componente pai para um componente filho, deixei assim.
+            key = { type } 
+            onClick = { this.changeFilter } // Aqui, a sintaxe poderia ser '() => this.setState({ typeFilter: type, indexCounter: 0 })', mas para fins didaticos de como pasar callbacks definidas no componente pai para um componente filho, deixei assim.
             className = { 'type' }/>);       
     // Essa é a sintaxe para se usar o children do componente; deve-se usar as tags do componente para abrir e fechar, como fosse uma tag HTML. 
     // O valor do children passado para o componente é o valor que se encontra entre as tags. A sintaxe do componente Buttons
@@ -31,9 +31,9 @@ class PokemonList extends Component {
     // createTypeButtons = () => 
     //     [...new Set(pokemons.map(({ type }) => type ))] 
     //     .map((type) => <Buttons 
-    //         key = { type }
-    //         onClick = { () => this.changeFilter(type) } // Aqui, a sintaxe poderia ser '() => this.setState({ typeFilter: '' })', mas para fins didaticos de como pasar callbacks definidas no componente pai para um componente filho, deixei assim.
-    //         className = { 'type' }> {type} </Buttons>); // Lembrete: se a callback nao tivesse parametro, a sintaxe seria 'this.changeFilter'
+    //         key = { type }                              // Lembrete: se a callback nao tivesse parametro (ou para fazer com que o botao a chame sem passar um), a sintaxe seria 'this.changeFilter'. Usar 'this.changeFilter()' ou 'this.changeFilter(param)' causa um loop infinito. 
+    //         onClick = { () => this.changeFilter(type) } // Aqui, a sintaxe poderia ser '() => this.setState({ typeFilter: type, indexCounter: 0 })', mas para fins didaticos de como pasar callbacks definidas no componente pai para um componente filho, deixei assim.
+    //         className = { 'type' }> {type} </Buttons>); 
 
     changeFilter = (type) => this.setState({ typeFilter: type, indexCounter: 0 });
     
