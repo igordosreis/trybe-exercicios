@@ -125,20 +125,20 @@ export default PokemonList;
 
 //         return ( 
 //             <>
-//                 <div className="cardContainer"> 
-//                     { filteredPokemon 
-//                     .map((pokemon, index) => (index === this.state.indexCounter)
-//                         ? <PokemonCard pokemon = { pokemon } key = { pokemon.id } />
-//                         : null) 
-//                     }
-//                 </div>
+                // <div className="cardContainer"> 
+                //     { filteredPokemon 
+                //     .map((pokemon, index) => (index === this.state.indexCounter)
+                //         ? <PokemonCard pokemon = { pokemon } key = { pokemon.id } />
+                //         : null) 
+                //     }
+                // </div>
 //                 <div className="buttonContainer">
-//                     <button 
-//                         onClick={ () => {
-//                             this.setState({ filteredPokemon: filteredPokemon.length })
-//                             this.nextPokemon() 
-//                         }} 
-//                         disabled={ (filteredPokemon.length === 1) ? true : false }>Next pokemon</button>
+                    // <button 
+                    //     onClick={ () => {
+                    //         this.setState({ filteredPokemon: filteredPokemon.length })
+                    //         this.nextPokemon() 
+                    //     }} 
+                    //     disabled={ (filteredPokemon.length === 1) ? true : false }>Next pokemon</button>
                     
 //                     <button onClick={ () => this.setState({ typeFilter: '' }) }>All types</button>
 //                     { this.createTypeButtons() }
